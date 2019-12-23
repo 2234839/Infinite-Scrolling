@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>无限滚动</title>
+</head>
+
+<body>
+    <div id=vessel style="height: 600px;overflow: hidden;position: relative;">
+
+    </div>
+    <div>总数：<span id=count></span></div>
+    <div onclick="add_10_item()">添加10条项目</div>
+</body>
+<script src="./index.js"></script>
+<style>
+    #vessel {
+        margin-top: 160px;
+    }
+
+    #vessel>div {
+        position: sticky;
+        top: 0px;
+        bottom: 0px;
+    }
+</style>
+
+</html>

@@ -58,20 +58,9 @@ let i = 0;
 
 function create_item(params) {
   const item = document.createElement("div");
-  // item.style.position = "absolute";
-  item.innerHTML = `
-  <div style="height:60px;">
-  item  ${i++}
-  <a href="<#=v.href#>">
-  <img class="img" src="data:image/gif;base64,R0lGODdhAQABAPAAAP%2F%2F%2FwAAACwAAAAAAQABAEACAkQBADs%3D"
-  data-src="<#=v.src#>">
-  </img>
-  <strong><#=v.title#></strong>
-  <span class="writer"><#=v.writer#></span>
-  <span class="good-num"><#=v.succNum#></span>
-</a>
-  </div>
-`;
+  item.innerHTML = `无限滚动 ${i++}`;
+  item.style = `   text-align: center;
+  height: 60px;`;
   return item;
 }
 

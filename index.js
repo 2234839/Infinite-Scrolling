@@ -33,12 +33,23 @@ vessel.addEventListener("mousemove", function(e) {
     /** 往上划 */
     /** 第二个元素到顶了，可以将第一个元素放到最下面 */
     if (two.offsetTop === 0) {
-      console.log(one.style.marginTop, one.offsetHeight, one);
       const new_top = number_px(one.style.marginTop) + one.offsetHeight;
       two.style.marginTop = new_top;
       one.style.marginTop = "";
       infinite_scrolling.vessel.appendChild(one);
       infinite_scrolling.element.push(infinite_scrolling.element.shift(0));
+    }
+  } else {
+    const l = infinite_scrolling.element.length;
+    const one_end = infinite_scrolling.element[l - 1];
+    const two_end = infinite_scrolling.element[l - 2];
+    /** 倒数第二个元素到底了，可以将倒数第一放到最上*/
+    if (two_end.offsetTop + two_end.offsetHeight === infinite_scrolling.vessel.offsetHeight) {
+      const new_top = number_px(one.style.marginTop) - one.offsetHeight;
+      one_end.style.marginTop = new_top + "px";
+      one.style.marginTop = "";
+      infinite_scrolling.vessel.insertBefore(one_end, one);
+      infinite_scrolling.element.unshift(infinite_scrolling.element.pop(0));
     }
   }
   old_e = e;
